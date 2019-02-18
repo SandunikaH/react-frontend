@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './css/Login.css';
-
 import axios from 'axios'
+
+import {Header} from "./components/Header";
 
 class Login extends Component
 {
@@ -25,6 +26,7 @@ class Login extends Component
         })
         .then(response => {
             this.setState({failedAttempt: false});
+            console.log("Go to Orders");
         })
         .catch(error => {
             this.setState({failedAttempt: true});
@@ -42,9 +44,7 @@ class Login extends Component
     render() {
         return (
             <div className="container">
-                <div className="topic">
-                    <h1>Point of Sale System</h1>
-                </div><br/><br/>
+                <Header/>
                 <div className="row">
                     <div className="col-md-4 col-sm-2 col-xs-3"></div>
                     <div className="col-md-4 col-sm-8 col-xs-6">

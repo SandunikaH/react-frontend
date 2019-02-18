@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import './css/Product.css'
 
-class Product extends Component{
+export class Product extends Component{
     render() {
         return (
-            <h2>Hello</h2>
+            <h2>Products</h2>
         );
     }
 }
-
-export default Product;
