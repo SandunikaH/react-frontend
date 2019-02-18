@@ -16,8 +16,6 @@ class Login extends Component
         this.PerformLogin = this.PerformLogin.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-
-
     }
 
     PerformLogin(){
@@ -25,12 +23,12 @@ class Login extends Component
             email: this.state.email,
             password: this.state.password,
         })
-            .then(response => {
-                this.setState({failedAttempt: false});
-            })
-            .catch(error => {
-                this.setState({failedAttempt: true});
-            })
+        .then(response => {
+            this.setState({failedAttempt: false});
+        })
+        .catch(error => {
+            this.setState({failedAttempt: true});
+        })
     }
 
     handleEmailChange(event) {
@@ -44,38 +42,36 @@ class Login extends Component
     render() {
         return (
             <div className="container">
+                <div className="topic">
+                    <h1>Point of Sale System</h1>
+                </div><br/><br/>
                 <div className="row">
                     <div className="col-md-4 col-sm-2 col-xs-3"></div>
                     <div className="col-md-4 col-sm-8 col-xs-6">
                         <div className="panel panel-default">
                             <div className="panel-body">
                                 <div className="form-group">
-                                    <label>User Name </label>
+                                    <label>Email </label>
                                     <div className="icon-holder">
-                                        <input type="text"
-                                               onChange={this.handleEmailChange}
-                                               className="form-control"/>
+                                        <input type="text" onChange={this.handleEmailChange} className="form-control"/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label>Password</label>
                                     <div className="icon-holder">
-                                        <input type="password"
-                                               onChange={this.handlePasswordChange}
-                                               className="form-control"/>
+                                        <input type="password" onChange={this.handlePasswordChange} className="form-control"/>
                                     </div>
                                 </div>
                             </div>
                             {this.state.failedAttempt &&
                             <div className="alert alert-danger" role="alert">
-                                Invalid username password combination
+                                Authentication Failed.
                             </div>
                             }
                             <div className="panel-footer">
                                 <button onClick={this.PerformLogin} className="btn btn-success btn-block">Login</button>
                             </div>
                         </div>
-
                     </div>
                     <div className="col-md-4 col-sm-2 col-xs-3"></div>
                 </div>

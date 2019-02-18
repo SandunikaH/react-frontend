@@ -1,6 +1,6 @@
 body {
     margin-top: 50px;
-    background-color: #f9f9f9;
+    background-color: #f9fff9;
 }
 
 input,
@@ -14,6 +14,9 @@ button,
     border-radius: 2px !important;
 }
 
+.topic {
+    text-align: center;
+}
 .btn-primary,
 .btn-primary:focus {
     color: #fff;
