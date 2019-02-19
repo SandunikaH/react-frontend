@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './css/Login.css';
-import axios from 'axios'
+import User from './User'
+import POS from './POS'
 
-import {Header} from "./components/Header";
 
 class Login extends Component
 {
@@ -20,17 +20,17 @@ class Login extends Component
     }
 
     PerformLogin(){
-        axios.post('http://localhost:8080/users/login', {
-            email: this.state.email,
-            password: this.state.password,
-        })
-        .then(response => {
-            this.setState({failedAttempt: false});
-            console.log("Go to Orders");
-        })
-        .catch(error => {
-            this.setState({failedAttempt: true});
-        })
+        let user = new User(this.state.email);
+        user.Authenticate(this.state.password)
+            .then((isLoggedIn)=>{
+                this.setState({failedAttempt: !isLoggedIn});
+                if (isLoggedIn){
+                    POS.instance.setState({showHeader: true});
+                    this.props.router.push('/products')
+                }else {
+                    POS.instance.setState({showHeader: false})
+                }
+            })
     }
 
     handleEmailChange(event) {
@@ -44,7 +44,6 @@ class Login extends Component
     render() {
         return (
             <div className="container">
-                <Header/>
                 <div className="row">
                     <div className="col-md-4 col-sm-2 col-xs-3"></div>
                     <div className="col-md-4 col-sm-8 col-xs-6">
