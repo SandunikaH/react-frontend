@@ -14,3 +14,11 @@
     align-items: center;
     margin-bottom: 4px;
 }
+
+a:hover {
+    text-decoration: none;
+}
+
+h3 {
+    text-align: center;
+}

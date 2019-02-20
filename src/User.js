@@ -2,7 +2,6 @@ import axios from "axios";
 
 class User
 {
-
     static instance = null;
 
     email = null;
@@ -19,7 +18,7 @@ class User
 
     static IsAuthenticated() {
         if (User.GetInstance() !== null){
-            return User.GetInstance().IsAuthenticated()
+            return User.GetInstance().IsAuthenticated();
         }else {
             return false;
         }
@@ -36,17 +35,21 @@ class User
                 .then((response)=>{
                     new User(response.data.email);
                     User.GetInstance().isAuthenticated = true;
-                    return resolve(true)
+                    return resolve(true);
                 })
                 .catch(()=>{
-                    return resolve(false)
+                    return resolve(false);
                 })
         })
     }
 
-    GetEmailAddress(){ return this.email}
+    GetEmailAddress(){
+        return this.email;
+    }
 
-    IsAuthenticated(){ return this.isAuthenticated }
+    IsAuthenticated(){
+        return this.isAuthenticated;
+    }
 
     Authenticate(password){
         return new Promise((resolve, reject) => {
@@ -61,6 +64,7 @@ class User
                     return resolve(true);
                 })
                 .catch(error => {
+                    console.log(error);
                     this.isAuthenticated = false;
                     return resolve(false);
                 })

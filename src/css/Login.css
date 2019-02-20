@@ -16,6 +16,7 @@ button,
 
 .topic {
     text-align: center;
+    margin-bottom: 130px;
 }
 .btn-primary,
 .btn-primary:focus {
@@ -33,4 +34,7 @@ button,
 
 label {
     font-weight:normal !important;
+}
+.subTopic{
+    text-align: center;
 }

@@ -13,9 +13,12 @@ export class Orders extends Component{
             orders: []
         };
         User.ValidateAccessToken()
-            .then(()=> {
+            .then((status)=> {
                 this.setState({validating: false});
-
+                if (!status){
+                    this.props.router.push('/');
+                    return;
+                }
                 const localToken = localStorage.getItem('token') || '';
                 axios.get('http://localhost:8080/orders', {headers:{'Authorization': `bearer ${localToken}`}})
                     .then((response)=>{
@@ -32,19 +35,25 @@ export class Orders extends Component{
 
     render() {
         if(this.state.validating){
-            return (<div>Please wait</div>)
+            return (
+                <div>Please wait</div>
+            );
         }
-
         return (
             <div>
                 <Header/>
                 <div className="container">
-                    <h2>Orders</h2>
+                    <h3>Orders</h3>
                     <div className="order-list">
-                        {this.state.orders.map(function(d, idx){
-                            return (<div className="item" key={idx}>{d.orderId}</div>)
-                        })}
-
+                        {
+                            this.state.orders.map(function(d, idx){
+                                return (
+                                    <div className="item" key={idx}>
+                                        <a href="#">{d.orderId}</a>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
 
                 </div>

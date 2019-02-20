@@ -1,10 +1,9 @@
-.topic {
+h1 {
     text-align: center;
 }
 
 ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
@@ -26,4 +25,5 @@ li a {
 li a:hover{
     background-color: #111;
     text-decoration: none;
+    color: #f1f1f1;
 }

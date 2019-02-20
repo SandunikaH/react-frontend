@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './css/Login.css';
 import User from './User'
 import POS from './POS'
+import {Header} from "./components/Header";
 
 
 class Login extends Component
 {
-
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -26,7 +26,7 @@ class Login extends Component
                 this.setState({failedAttempt: !isLoggedIn});
                 if (isLoggedIn){
                     POS.instance.setState({showHeader: true});
-                    this.props.router.push('/products')
+                    this.props.router.push('/orders')
                 }else {
                     POS.instance.setState({showHeader: false})
                 }
@@ -44,13 +44,15 @@ class Login extends Component
     render() {
         return (
             <div className="container">
+                <h1 className="topic">Point of Sales System</h1>
+                <h4 className="subTopic">Please Sign In</h4><br/>
                 <div className="row">
                     <div className="col-md-4 col-sm-2 col-xs-3"></div>
                     <div className="col-md-4 col-sm-8 col-xs-6">
                         <div className="panel panel-default">
                             <div className="panel-body">
                                 <div className="form-group">
-                                    <label>Email </label>
+                                    <label>Email</label>
                                     <div className="icon-holder">
                                         <input type="text" onChange={this.handleEmailChange} className="form-control"/>
                                     </div>
@@ -62,10 +64,11 @@ class Login extends Component
                                     </div>
                                 </div>
                             </div>
-                            {this.state.failedAttempt &&
-                            <div className="alert alert-danger" role="alert">
-                                Authentication Failed.
-                            </div>
+                            {
+                                this.state.failedAttempt &&
+                                <div className="alert alert-danger" role="alert">
+                                    Authentication Failed.
+                                </div>
                             }
                             <div className="panel-footer">
                                 <button onClick={this.PerformLogin} className="btn btn-success btn-block">Login</button>
