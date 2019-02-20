@@ -1,18 +1,23 @@
-.order-list{
-
+body{
+    background-color: #f9fff9;
 }
 
+.order-list{
+    padding-top: 20px;
+}
+
+
 .order-list > .item{
-    height: 20px;
-    border: 2px solid #ccc;
+    height: 50px;
+    border: 2px solid #28a745;
     border-radius: 5px;
-    padding: 20px;
     font-size: 16px;
     color: #333;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+a{
+    color: #484242;
 }
 
 a:hover {
@@ -22,3 +27,21 @@ a:hover {
 h3 {
     text-align: center;
 }
+
+tab1 {
+    padding-left: 100px;
+}
+tab2 {
+    padding-left: 6px;
+}
+.orderNo {
+    float: left;
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+.buttonsPane{
+    padding: 6px;
+    float: right;
+}
+

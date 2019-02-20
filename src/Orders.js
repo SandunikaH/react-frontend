@@ -29,8 +29,6 @@ export class Orders extends Component{
                         console.error(err);
                     })
             });
-
-
     }
 
     render() {
@@ -44,18 +42,30 @@ export class Orders extends Component{
                 <Header/>
                 <div className="container">
                     <h3>Orders</h3>
+                    <h4>Order Count: <b>{this.state.orders.length}</b></h4>
                     <div className="order-list">
                         {
                             this.state.orders.map(function(d, idx){
                                 return (
                                     <div className="item" key={idx}>
-                                        <a href="#">{d.orderId}</a>
+                                        <div>
+                                            <div className="orderNo">
+                                                Order No: <tab2>{idx+1}</tab2> <tab1>Order ID: <tab2>{d.orderId}</tab2></tab1>
+                                            </div>
+                                            <div className="buttonsPane">
+                                                <a href="#" className="btn btn-info">
+                                                    <i className="glyphicon glyphicon-new-window"></i>
+                                                </a> <tab2></tab2>
+                                                <a href="#" className="btn btn-danger">
+                                                    <i className="glyphicon glyphicon-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 );
                             })
                         }
                     </div>
-
                 </div>
             </div>
         );

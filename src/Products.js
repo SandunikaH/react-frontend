@@ -32,12 +32,31 @@ export class Products extends Component {
     }
 
     render() {
+        if(this.state.validating){
+            return (
+                <div>Please wait</div>
+            );
+        }
         return (
             <div>
                 <Header/>
-                Products
-            </div>
+                <div className="container">
+                    <h3>Products</h3>
+                    <div className="product-list">
+                        {
+                            this.state.products.map(function(p, idx){
+                                return (
+                                    <div className="item" key={idx}>
+                                        <p>{p.productName}</p>
+                                        <p>Unit Price Rs: <b>{p.productPrice}</b></p>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
 
+                </div>
+            </div>
         );
     }
 }

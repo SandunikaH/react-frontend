@@ -1,9 +1,8 @@
 import React from "react";
-import {Header} from "./components/Header";
 import Login from "./Login";
-import User from "./User";
 import {Router, Route, browserHistory} from "react-router";
 import {Orders} from "./Orders";
+import {Products} from "./Products";
 
 export default class POS extends React.Component{
 
@@ -23,6 +22,7 @@ export default class POS extends React.Component{
                 <Router history={browserHistory}>
                     <Route path={"/"} component={Login}/>
                     <Route path={"/orders"} component={Orders}/>
+                    <Route path={"/products"} component={Products}/>
                 </Router>
             </div>
         )

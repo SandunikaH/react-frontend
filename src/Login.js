@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './css/Login.css';
 import User from './User'
 import POS from './POS'
-import {Header} from "./components/Header";
-
 
 class Login extends Component
 {
