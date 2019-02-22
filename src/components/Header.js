@@ -1,7 +1,6 @@
 import React from "react";
 import '../css/Header.css'
 import User from "../User";
-import Product from "../Products"
 
 export class Header extends React.Component{
 
